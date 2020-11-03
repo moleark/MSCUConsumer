@@ -1,0 +1,21 @@
+{
+  "name": "msdsconsumer",
+  "version": "1.0.0",
+  "description": "msds consumer for tonva production.",
+  "main": "msdsMqConsumer.js",
+  "scripts": {
+    "start": "node msdsMqConsumer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "msds",
+    "consumer",
+    "rabbitmq"
+  ],
+  "author": "ligsh",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.6.0",
+    "config": "^3.3.2"
+  }
+}
