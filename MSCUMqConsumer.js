@@ -21,18 +21,17 @@ amqp.connect(connectionstring, function (error0, connection) {
         }
 
         channel.assertQueue(queue, {
-            exclusive: true
+            exclusive: false
         }, function (error2, q) {
             if (error2) {
                 throw error2;
             }
 
-            console.log(' [*] Waiting for logs. To exit press CTRL+C');
+            console.log(' [*] MSCUConsumer started. To exit press CTRL+C');
 
             channel.bindQueue(q.queue, exchange, binding_key);
             channel.consume(q.queue, function (msg) {
-                let { fields, content } = msg;
-                console.log(" [x] %s", fields.routingKey);
+                let { content } = msg;
                 if (content.byteLength > 200) {
                     let metaString = content.subarray(0, 200).toString();
                     let meta = metaString.trimEnd().split('|');
@@ -47,7 +46,7 @@ amqp.connect(connectionstring, function (error0, connection) {
                         if (savePath !== undefined) {
                             fs.writeFile(savePath + fileName, content.subarray(200), (err) => {
                                 if (err) throw err;
-                                console.log('the file has been saved!');
+                                console.log(`the file ${fileName} has been saved!`);
                             });
                         }
                     }
