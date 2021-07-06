@@ -20,6 +20,11 @@
         },
         "spec": "",
         "coa": "",
-        "userManaul": ""
+        "userManaul": {
+            "CN": "c:\\test\\CN\\",
+            "EN": "c:\\test\\EN\\",
+            "DE": "c:\\test\\DE\\",
+            "FR": "c:\\test\\FR\\"
+        }
     }
 }

@@ -38,7 +38,7 @@ amqp.connect(connectionstring, function (error0, connection) {
                     if (meta.length === 2) {
                         let fileName = meta[1], fileType = meta[0];
                         let savePath = savePathSetting[fileType];
-                        if (fileType === 'msds') {
+                        if (fileType === 'msds' || fileType === 'usermanual') {
                             // MSDS 文件的名称格式为 xxxxx_[CN|EN|DE|FR].pdf
                             let lang = fileName.substring(fileName.indexOf('_') + 1, fileName.indexOf('.')).toUpperCase();
                             savePath = savePath[lang];
