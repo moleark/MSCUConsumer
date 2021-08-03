@@ -21,6 +21,7 @@ amqp.connect(connectionstring, function (error0, connection) {
         }
 
         channel.assertQueue(queue, {
+            durable: true,
             exclusive: false
         }, function (error2, q) {
             if (error2) {
@@ -52,7 +53,7 @@ amqp.connect(connectionstring, function (error0, connection) {
                     }
                 }
             }, {
-                noAck: true
+                noAck: false
             });
         });
     });
